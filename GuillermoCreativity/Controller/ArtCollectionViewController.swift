@@ -26,7 +26,7 @@ public class ArtCollectionViewController: UICollectionViewController
             UIImage(named: "mainframeHaiku"),
             UIImage(named: "swiftHaiku"),
             UIImage(named: "randomArt1"),
-            UIImage(named: "randomArt20"),
+            UIImage(named: "randomArt2"),
             UIImage(named: "theNightWatch"),
             UIImage(named: "stickFigure"),
     
@@ -51,6 +51,9 @@ public class ArtCollectionViewController: UICollectionViewController
         ]
     }()
 
+    // MARK: - Lifecycle
+    
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -99,6 +102,15 @@ public class ArtCollectionViewController: UICollectionViewController
     }
 
     // MARK: UICollectionViewDelegate
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        let paddingSpace = sectionInsets.left * (itemsPerRowNormal + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRowCompact
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+        
+    }
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
