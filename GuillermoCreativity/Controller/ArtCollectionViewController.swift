@@ -10,9 +10,49 @@ import UIKit
 
 private let reuseIdentifier = "artidentifier"
 
-public class ArtCollectionViewController: UICollectionViewController {
+public class ArtCollectionViewController: UICollectionViewController
+{
+    
+    // MARK: Data members
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private let itemsPerRowCompact : CGFloat = 4
+    private let itemsPerRowNormal: CGFloat = 6
+    
+    private let creativeCS : [UIImage?] =
+    {
+        return [
+            UIImage(named: "octocat"),
+            UIImage(named: "javaHaiku"),
+            UIImage(named: "mainframeHaiku"),
+            UIImage(named: "swiftHaiku"),
+            UIImage(named: "randomArt1"),
+            UIImage(named: "randomArt20"),
+            UIImage(named: "theNightWatch"),
+            UIImage(named: "stickFigure"),
+    
+    
+    
+        ]
+    }()
+    
+    
+    private let labels : [String] =
+    {
+        return [
+            "My Octocat",
+            "A Java Haiku",
+            "A Mainframe Haiku",
+            "A Swift Haiku",
+            "Cool Art found on Google 1",
+            "Cool Art found on Google 2",
+            "The Night Watch",
+            "My Stick Figure",
+            
+        ]
+    }()
 
-    public override func viewDidLoad() {
+    public override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -36,18 +76,21 @@ public class ArtCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-   public override func numberOfSections(in collectionView: UICollectionView) -> Int {
+   public override func numberOfSections(in collectionView: UICollectionView) -> Int
+   {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
 
 
-    public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
         // #warning Incomplete implementation, return the number of items
         return 0
     }
 
-    public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
         // Configure the cell
