@@ -78,6 +78,10 @@
                                 <constraints>
                                     <constraint firstItem="1th-A8-8b7" firstAttribute="width" secondItem="4vI-Vp-TRG" secondAttribute="width" id="hmr-gS-bNB"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="artImage" destination="1th-A8-8b7" id="Ny6-cL-coa"/>
+                                    <outlet property="artLabel" destination="Pdo-Lu-Rbv" id="19h-Iz-2rZ"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
