@@ -1,8 +1,8 @@
 //
 //  ArtCollectionViewController.swift
-//  GuillermoCreativity
+//  CreativityProject
 //
-//  Created by Ramos aguirre, Guillermo on 11/7/18.
+//  Created by Spaulding, Bryson on 11/7/18.
 //  Copyright © 2018 CTEC. All rights reserved.
 //
 
@@ -13,10 +13,12 @@ private let reuseIdentifier = "artidentifier"
 public class ArtCollectionViewController: UICollectionViewController
 {
     
-    // MARK: Data members
+    
+    //MARK: Data members for Creativity Screen
+    
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     private let itemsPerRowCompact : CGFloat = 4
-    private let itemsPerRowNormal: CGFloat = 6
+    private let itemsPerRowNormal : CGFloat = 6
     
     private let creativeCS : [UIImage?] =
     {
@@ -28,55 +30,51 @@ public class ArtCollectionViewController: UICollectionViewController
             UIImage(named: "randomArt1"),
             UIImage(named: "randomArt2"),
             UIImage(named: "theNightWatch"),
-            UIImage(named: "stickFigure"),
-    
-    
-    
+            UIImage(named: "stickFigure")
         ]
     }()
-    
     
     private let labels : [String] =
     {
         return [
-            "My Octocat",
-            "A Java Haiku",
-            "A Mainframe Haiku",
-            "A Swift Haiku",
+            "My OctoCat",
+            "My Java Haiku",
+            "Mainframe haiku",
+            "My Swift Haiku",
             "Cool Art found on Google 1",
             "Cool Art found on Google 2",
             "The Night Watch",
-            "My Stick Figure",
+            "Stick figure",
             
         ]
     }()
-
-    // MARK: - Lifecycle
     
+    //MARK: - Lifecycle
     
-    public override func viewDidLoad()
-    {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+        //   self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
         // Do any additional setup after loading the view.
     }
-
+    
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using [segue destinationViewController].
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     // MARK: UICollectionViewDataSource
     
     public override func numberOfSections(in collectionView: UICollectionView) -> Int
@@ -136,6 +134,7 @@ public class ArtCollectionViewController: UICollectionViewController
     {
         return sectionInsets.left
     }
+    
     public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         let imageView = UIImageView(image: creativeCS[indexPath.row])
@@ -144,7 +143,7 @@ public class ArtCollectionViewController: UICollectionViewController
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
         
-        let tap = UIGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         imageView.addGestureRecognizer(tap)
         
         self.view.addSubview(imageView)
@@ -156,6 +155,13 @@ public class ArtCollectionViewController: UICollectionViewController
     {
         sender.view?.removeFromSuperview()
     }
+    
+    
+    public func colletionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        return sectionInsets
+    }
+    
     
     
     /*
